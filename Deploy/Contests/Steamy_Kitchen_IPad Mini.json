@@ -1,0 +1,46 @@
+﻿{
+  "Name": "Steamy Kitchen IPad Mini",
+  "Url": "https://steamykitchen.com/45738-apple-ipad-mini-giveaway-7.html",
+  "EndDate": "2018-04-02",
+  "Actions": [
+    {
+      "Type": "Id",
+      "Find": "skg_first_name",
+      "Action": "SendKey",
+      "Value": "@firstname",
+      "Sequence": 1
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_last_name",
+      "Action": "SendKey",
+      "Value": "@lastname",
+      "Sequence": 2
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_email",
+      "Action": "SendKey",
+      "Value": "@email",
+      "Sequence": 3
+    },
+    {
+      "Type": "Name",
+      "Find": "skg_answer",
+      "Action": "SendKey",
+      "Value": "Shrimp Teriyaki Stir Fry",
+      "Sequence": 4
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_submit_button",
+      "Action": "Click",
+      "Sequence": 5
+    }
+  ],
+  "ContestResult": {
+    "Type": "Id",
+    "Find": "content",
+    "SearchFor": "Thank you for your submission"
+  }
+}

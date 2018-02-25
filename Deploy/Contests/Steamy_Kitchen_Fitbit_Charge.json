@@ -1,0 +1,39 @@
+﻿{
+  "Name": "Steamy Kitchen Fitbit Charge",
+  "Url": "https://steamykitchen.com/45842-fitbit-charge-bobby-flay-fit-giveaway.html",
+  "EndDate": "2018-04-22",
+  "Actions": [
+    {
+      "Type": "Id",
+      "Find": "skg_first_name",
+      "Action": "SendKey",
+      "Value": "@firstname",
+      "Sequence": 1
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_last_name",
+      "Action": "SendKey",
+      "Value": "@lastname",
+      "Sequence": 2
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_email",
+      "Action": "SendKey",
+      "Value": "@email",
+      "Sequence": 3
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_submit_button",
+      "Action": "Click",
+      "Sequence": 4
+    }
+  ],
+  "ContestResult": {
+    "Type": "Id",
+    "Find": "content",
+    "SearchFor": "Thank you for your submission"
+  }
+}

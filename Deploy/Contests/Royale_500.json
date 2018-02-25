@@ -1,0 +1,31 @@
+﻿{
+  "Name": "Royale 500$",
+  "Url": "https://couvrezvous.promotionsroyale.ca",
+  "EndDate": "2018-03-13",
+  "Actions": [
+    {
+      "Type": "Name",
+      "Find": "email",
+      "Action": "SendKey",
+      "Value": "@email",
+      "Sequence": 1
+    },
+    {
+      "Type": "Name",
+      "Find": "rules",
+      "Action": "Click",
+      "Sequence": 2
+    },
+    {
+      "Type": "Name",
+      "Find": "submit",
+      "Action": "Click",
+      "Sequence": 3
+    }
+  ],
+  "ContestResult": {
+    "Type": "Id",
+    "Find": "app",
+    "SearchFor": "Vous êtes maintenant inscrit!"
+  }
+}

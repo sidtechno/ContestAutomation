@@ -1,0 +1,39 @@
+﻿{
+  "Name": "Steamy Kitchen TFal",
+  "Url": "https://steamykitchen.com/45930-t-fal-ultimate-hard-anodized-scratch-resistant-titanium-giveaway-2.html",
+  "EndDate": "2018-05-16",
+  "Actions": [
+    {
+      "Type": "Id",
+      "Find": "skg_first_name",
+      "Action": "SendKey",
+      "Value": "@firstname",
+      "Sequence": 1
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_last_name",
+      "Action": "SendKey",
+      "Value": "@lastname",
+      "Sequence": 2
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_email",
+      "Action": "SendKey",
+      "Value": "@email",
+      "Sequence": 3
+    },
+    {
+      "Type": "Id",
+      "Find": "skg_submit_button",
+      "Action": "Click",
+      "Sequence": 4
+    }
+  ],
+  "ContestResult": {
+    "Type": "Id",
+    "Find": "content",
+    "SearchFor": "Thank you for your submission"
+  }
+}
