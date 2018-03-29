@@ -18,6 +18,7 @@ namespace RobotApp
     class Program
     {
         private static IConfigurationRoot Configuration;
+        private static FirefoxDriver driver = null;
 
         static void Main(string[] args)
         {
@@ -25,7 +26,7 @@ namespace RobotApp
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Contests");
             DirectoryInfo d = new DirectoryInfo(@path);
             FileInfo[] Contests = d.GetFiles("*.json");
-            FirefoxDriver driver = null;
+            
 
             foreach (FileInfo file in Contests)
             {
@@ -57,7 +58,15 @@ namespace RobotApp
                                     element = driver.FindElement(By.Name(action.Find));
 
                                 if (action.Type == "Class")
-                                    element = driver.FindElement(By.ClassName(action.Find));
+                                    if (TryFindElement(By.ClassName(action.Find), out element))
+                                    {
+                                        bool visible = IsElementVisible(element);
+                                        if (visible)
+                                        {
+                                            element = driver.FindElement(By.ClassName(action.Find));
+                                        }
+                                    }
+                                
 
                                 if (action.Action == "SendKey")
                                 {
@@ -70,7 +79,8 @@ namespace RobotApp
                                 else if (action.Action == "Click")
                                 {
                                     Thread.Sleep(1000);
-                                    element.Click();
+                                    if(element != null)
+                                        element.Click();
                                 }
                             }
 
@@ -98,6 +108,25 @@ namespace RobotApp
                     }
                 }
             }
+        }
+
+        public static bool TryFindElement(By by, out IWebElement element)
+        {
+            try
+            {
+                element = driver.FindElement(by);
+            }
+            catch (NoSuchElementException ex)
+            {
+                element = null;
+                return false;
+            }
+            return true;
+        }
+
+        public static bool IsElementVisible(IWebElement element)
+        {
+            return element.Displayed && element.Enabled;
         }
 
         private static string GetFromContestant(ContestantModel contestant, string value)
